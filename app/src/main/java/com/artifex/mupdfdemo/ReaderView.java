@@ -37,7 +37,7 @@ public class ReaderView
 	private static final float MAX_SCALE        = 5.0f;
 	private static final float REFLOW_SCALE_FACTOR = 0.5f;
 
-	private static final boolean HORIZONTAL_SCROLLING = false;
+	private static boolean HORIZONTAL_SCROLLING = false;
 
 	private Adapter           mAdapter;
 	private int               mCurrent;    // Adapter's index for the current view
@@ -105,6 +105,10 @@ public class ReaderView
 		mScaleGestureDetector = new ScaleGestureDetector(context, this);
 		mScroller        = new Scroller(context);
 		mStepper = new Stepper(this, this);
+	}
+
+	public void swipeHorizontal(boolean isHorizontal){
+		HORIZONTAL_SCROLLING = isHorizontal;
 	}
 
 	public int getDisplayedViewIndex() {
